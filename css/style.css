@@ -1,0 +1,117 @@
+body{
+	margin: 0px;
+	background-color: #000;
+}
+
+.siteSection{
+	width: 100%;
+}
+
+	.siteContent{
+		margin: 0 auto;
+		width: 600px;
+		min-height: 480px;
+		overflow: hidden;
+	}
+
+		#coverFlow{
+			position: relative;
+			height: 300px;
+			width: 600px;
+			display: block;
+			 -webkit-perspective: 1100;   
+			transform:  perspective( 1100);  
+			margin-top: 20px;
+		}
+		
+			#covers{
+				position: absolute;
+				height:300px;
+				display: block;
+				-webkit-transform: translateZ( -200px );            
+				-webkit-transform-style: preserve-3d;
+				transform: translateZ( -200px );            
+				transform-style: preserve-3d;
+				left: 200px; /*roughly one image in */
+			}
+		
+			#coverFlow .cover{
+				width: 200px; /*image width*/
+				height: 200px;
+				display: block;
+				float: left;
+				-webkit-transition: -webkit-transform 0.5s ease; 
+				transition: transform 0.5s ease; 
+			}
+			
+			#coverFlow .cover > img{
+				width: 100%;
+				height: 200px;
+				-webkit-box-reflect:below 0px -webkit-gradient(linear, left top, left bottom, from(transparent),color-stop(0.7, transparent), to(white));
+				-webkit-box-reflect:below 0px -webkit-gradient(linear, left top, left bottom, from(transparent),color-stop(0.7, transparent), to(white));
+			}
+			
+			#covers .cover{
+				-webkit-transition: -webkit-transform 0.5s ease; 
+				opacity:0.7;
+				filter:alpha(opacity=70);
+				cursor: pointer;
+			}
+			
+			#covers .cover.active {
+				-webkit-transform: translateX(-20px) rotateY(0deg) translateZ(200px) !important;	
+				transform: translateX(-20px) rotateY(0deg) translateZ(200px) !important;	
+				opacity:1.0;
+				filter:alpha(opacity=100);
+				width: 200px; /*image width*/
+			}
+			
+			#covers > div{
+				position: relative;
+				width: 120px; /*width * the perspective angle*/
+				height: 300px;
+				float: left;
+			}
+			
+			#covers > div.active{
+				width: 200px;
+				
+			}
+			
+			.title{
+				color: #fff;
+				font-weight: bold;
+				position: absolute;
+				top: 250px;
+				width: 200px; /*image width*/
+				z-index: 400;
+				text-align: center;
+				display: none;
+			}
+			
+			.active .title{
+				display: block;
+			}
+			
+			#covers .cover.activeLeft,
+			#covers .cover.activeRight{
+				width: 120px;  /*width * the perspective angle*/
+			}
+			
+			#covers .cover.activeRight{
+				margin-right: -120px;
+			}
+			
+			#scrollBar{
+				width: 500px;
+				margin-left: 50px;
+			}
+			
+			.ui-slider-handle{
+				cursor: pointer;
+				outline: 0;
+			}
+			p,
+			h1{ color: #fff; }
+		
+			h1{ text-align: center; }
